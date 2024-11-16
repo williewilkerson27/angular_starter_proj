@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* You want to set margin/padding to 0 to
+make sure we have consistent starting points
+and it prevents unexpected spacing issues */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+/* :root gives us higher specificity and the
+ global css file is the correct place to do this */
+:root {
+    --primary-color: #605DC8;
+    --secondary-color: #8B89E6;
+    --accent-color: #e8e7fa;
+    --shadow-color: #E8E8E8;
+}
+
+button.primary {
+    padding: 10px;
+    border: solid 1px var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+}
