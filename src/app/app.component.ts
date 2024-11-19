@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
     </section>
   `,
   styleUrls: ['./app.component.css'],
-  imports: [HomeComponent, RouterModule],
+  imports: [HomeComponent, RouterModule]
 })
 export class AppComponent {
   title = 'homes';

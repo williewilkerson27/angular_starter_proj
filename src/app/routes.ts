@@ -9,7 +9,9 @@ const routeConfig: Routes = [
         title: 'Home Page'
     },
     {
-        path: 'details',
+        // "/:id" is a placeholder for the parameter value 
+        // that we'll receive in the urls that match with this route
+        path: 'details/:id',
         component: DetailsComponent,
         title: 'Details Page'
     }
