@@ -16,7 +16,6 @@ import { RouterLink } from '@angular/router';
           so we can support property binding,
             which allows us to have dynamic values
             and more than just strings-->
-      
       <a [routerLink]="['/details', housingLocation.id]">Learn More</a>
     </section>
   `,
