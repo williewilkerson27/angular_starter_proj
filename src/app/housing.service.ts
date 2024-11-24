@@ -129,4 +129,9 @@ export class HousingService {
 // where the id matches the provided parameter    
     return this.housingLocationList.find(housingLocation => housingLocation.id === id);
   }
+// Now my submitApplication is linked to itself in details.component.ts
+// This defines what submitApplication is.
+  submitApplication(firstName: string, lastName: string, email: string) {
+    console.log(firstName, lastName, email)
+  }
 }

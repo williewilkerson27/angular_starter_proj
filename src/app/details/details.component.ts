@@ -26,7 +26,17 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
     </section>
     <section class="listing-apply">
       <h2 class="section-heading">Apply now to live here</h2>
-      <button class="primary" type="button">Apply Now</button>
+      <form [formGroup]="applyForm" (submit)="submitApplication()">
+        <label for="first-name">First Name</label>
+        <input id="first-name" type="text" formControlName="firstName">
+
+        <label for="last-name">Last Name</label>
+        <input id="last-name" type="text" formControlName="lastName">
+
+        <label for="email">Email</label>
+        <input id="email" type="text" formControlName="email">
+        <button type="sumbit" class="primary">Apply Now</button>
+      </form>
     </section>
     </article>
   `,
@@ -39,10 +49,25 @@ export class DetailsComponent {
   housingService = inject(HousingService);  // Service for housing data
   housingLocation : HousingLocation | undefined; // Property to store housing details
 
+  //* FORMS
+  applyForm = new FormGroup({
+    firstname: new FormControl(''),
+    lastname: new FormControl(''),
+    email: new FormControl('')
+    });
+  
+
   constructor() {
     // Get the ID from the URL parameters and convert to number
     const housingLocationId = Number(this.route.snapshot.params['id']); 
     // Fetch housing location details using the ID
     this.housingLocation = this.housingService.getAllHousingLocationById(housingLocationId)
+  }
+  submitApplication() {
+    this.housingService.submitApplication(
+      this.applyForm.value.firstname ?? '',
+      this.applyForm.value.lastname ?? '',
+      this.applyForm.value.email ?? '',
+    )
   }
 }
